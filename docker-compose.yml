@@ -1,0 +1,15 @@
+version: '3'
+services:
+  node:
+    image: node:latest
+    container_name: skeleton_node
+    tty: true
+    working_dir: /skeleton
+    volumes:
+        - .:/skeleton
+  redis:
+    image: redis:latest
+    container_name: skeleton_redis
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: skeleton_redis_commander
