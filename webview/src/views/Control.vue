@@ -2,7 +2,8 @@
   <div class="control">
     <h1>This is an control page</h1>
     <MonitorScreen />
-    <DirectionArrow />
+    <DirectionArrow arrow-id="up" />
+    <DirectionArrow arrow-id="down" />
     <StatusBar />
   </div>
 </template>

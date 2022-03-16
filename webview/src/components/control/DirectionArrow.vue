@@ -1,16 +1,21 @@
 <template>
-  <div>{{ msg }}</div>
+  <div>
+    <font-awesome-icon :icon="icons[arrowId]" />
+  </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-
-@Options({
+export default {
   props: {
-    msg: String,
+    arrowId: String,
   },
-})
-export default class DirectionArrow extends Vue {
-  msg!: string;
-}
+  data() { // Todo: return type
+    return {
+      icons: {
+        up: ["fas", "arrow-up"],
+        down: ["fas", "arrow-down"],
+      },
+    };
+  },
+};
 </script>
