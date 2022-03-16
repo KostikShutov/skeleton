@@ -20,4 +20,8 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((to) => {
+  document.title = String(to.name || "Webview");
+});
+
 export default router;
