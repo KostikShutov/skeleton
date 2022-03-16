@@ -5,12 +5,5 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 
-@Options({
-  props: {
-    msg: String,
-  },
-})
-export default class StatusBar extends Vue {
-  msg!: string;
-}
+export default class StatusBar extends Vue {}
 </script>

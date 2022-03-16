@@ -1,5 +1,5 @@
 <template>
-  <div>Стрелка</div>
+  <div>{{ msg }}</div>
 </template>
 
 <script lang="ts">
