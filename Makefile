@@ -1,20 +1,59 @@
-up:
+##########
+# Docker #
+##########
+
+.PHONY: docker-up
+docker-up:
 	docker-compose up -d
 
-down:
+.PHONY: docker-down
+docker-down:
 	docker-compose down
 
-restart:
+.PHONY: docker-restart
+docker-restart:
 	docker-compose restart
 
-bash:
+.PHONY: docker-node
+docker-node:
 	docker-compose exec node bash
 
-install-client:
-	docker-compose run node cd client && npm install
+##########
+# Client #
+##########
 
-install-server:
-	docker-compose run node cd server && npm install
+.PHONY: client-install
+client-install:
+	docker-compose run --rm -w /skeleton/client node npm install
 
-install-webview:
-	docker-compose run node cd webview && npm install
+##########
+# Server #
+##########
+
+.PHONY: server-install
+server-install:
+	docker-compose run --rm -w /skeleton/server node npm install
+
+.PHONY: server-up
+server-up:
+	docker-compose run --rm -p 1002:3000 -w /skeleton/server node node index.js
+
+###########
+# Webview #
+###########
+
+.PHONY: webview-install
+webview-install:
+	docker-compose run --rm -w /skeleton/webview node npm install
+
+.PHONY: webview-up
+webview-up:
+	docker-compose run --rm -p 1003:8080 -w /skeleton/webview node npm run serve
+
+.PHONY: webview-build
+webview-build:
+	docker-compose run --rm -w /skeleton/webview node npm run build
+
+.PHONY: webview-watch
+webview-watch:
+	docker-compose run --rm -w /skeleton/webview node npm run watch
